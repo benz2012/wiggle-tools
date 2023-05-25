@@ -6,7 +6,7 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "redirects": [
+    "rewrites": [
       {
         "source": "/animate{,/**}",
         "destination": "/animate/index.html"
