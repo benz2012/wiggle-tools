@@ -19,8 +19,8 @@ jobs:
       - run: pwd && find .
       - run: mkdir ./build
       - run: cd wiggle-tools && npm ci && npm run build && cp -r ./build/ ../build/front/
+      - run: cd ../ && ls -lah
       - run: cd ../wiggle-animate && npm ci && npm run build && cp -r ./build/ ../build/animate/
-      - run: cd ../ && ls -lah ./build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
