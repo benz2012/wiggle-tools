@@ -1,11 +1,20 @@
 {
   "hosting": {
-    "target": "front",
     "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/animate{,/**}",
+        "destination": "/animate/index.html"
+      },
+      {
+        "source": "**",
+        "destination": "/front/index.html"
+      }
     ]
   }
 }

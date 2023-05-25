@@ -8,7 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm ci && npm run build
+        with:
+          repository: benz2012/wiggle-tools
+          path: wiggle-tools
+      - uses: actions/checkout@v3
+        with:
+          repository: benz2012/wiggle-animate
+          path: wiggle-animate
+
+      - run: mkdir ./build
+      - run: cd wiggle-tools && npm ci && npm run build && cp ./build/ ../build/front/
+      - run: cd ../wiggle-animate && npm ci && npm run build && cp ./build/ ../build/animate/
+      - run: cd ../ && ls -lah ./build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
