@@ -1,15 +1,10 @@
 name: Deploy to Firebase Hosting on merge
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      ref:
-        description: 'Branch or Commit Reference'
-        type: string
-        required: true
 
 jobs:
   build_and_deploy:
