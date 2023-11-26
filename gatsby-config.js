@@ -4,7 +4,10 @@
 module.exports = {
   siteMetadata: {
     title: `Wiggle Tools`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.wiggle.tools`
   },
-  plugins: ["gatsby-plugin-styled-components"]
+  plugins: [
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-sitemap"
+  ]
 };
