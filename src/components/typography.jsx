@@ -1,22 +1,28 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const common = css`
+  color: white;
+`
+
+const commonHeader = css`
+  ${common}
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 700;
+`
 
 export const Heading1 = styled.h1`
-  font-family: 'Roboto Slab', sans-serif;
+  ${commonHeader}
   font-size: 48px;
-  font-weight: 700;
-  color: white;
 `
 
 export const Heading2 = styled.h2`
-  font-family: 'Roboto Slab', sans-serif;
+  ${commonHeader}
   font-size: 40px;
-  font-weight: 700;
-  color: white;
 `
 
 export const Body = styled.p`
+  ${common}
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 400;
-  color: white;
 `
