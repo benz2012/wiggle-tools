@@ -15,10 +15,13 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.0.8",
+    "@fontsource/roboto-slab": "^5.0.17",
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.12.4",
     "gatsby-plugin-sitemap": "^6.12.3",
     "gatsby-plugin-styled-components": "^6.12.0",
+    "gatsby-source-filesystem": "^5.12.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.1"
