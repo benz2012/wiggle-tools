@@ -1,55 +1,32 @@
 import { useStaticQuery, graphql } from 'gatsby'
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
-import { getContent } from '../helpers'
+import { createGlobalStyle } from 'styled-components'
+
+import theme from '../theme'
+import MainSection from '../sections/MainSection'
+import Section1 from '../sections/Section1'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #282c34;
+    background-color: ${theme.palette.background};
     color: white;
     font-family: Roboto, sans-serif;
-  }
-`
-
-const MainPage = styled.main`
-  padding: 96px;
-`
-
-const Heading1 = styled.h1`
-  font-family: 'Roboto Slab', sans-serif;
-`
-
-const StyledLink = styled.a`
-  color: #61dafb;
-  &:hover {
-    color: #40ffff;
+    padding: 0;
+    margin: 0;
   }
 `
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allFile {
-        nodes {
-          name
-          childrenPlainText {
-            content
-          }
-        }
-      }
-    }
-  `)
-
-  const content = getContent(data, 'section1-header')
-  console.log(content)
+  const data = useStaticQuery(graphql` query { allFile { nodes {
+    name
+    childrenPlainText { content }
+  }}}`)
 
   return (
     <>
       <GlobalStyle />
-      <MainPage>
-        <Heading1>Wiggle Tools Homepage</Heading1>
-        <StyledLink href="https://wiggle.tools/animate">Wiggle Animate</StyledLink>
-      </MainPage>
+      <MainSection data={data} />
+      <Section1 data={data} />
     </>
   )
 }
