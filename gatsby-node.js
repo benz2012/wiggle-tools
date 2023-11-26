@@ -1,20 +1,6 @@
-const isTextFile = node => {
-  return (
-    node.internal.type === "File" && node.internal.mediaType === "text/plain"
-  )
-}
-
-const isFileWithoutExtension = node => {
-  return (
-    node.internal.type === "File" &&
-    node.internal.mediaType === "application/octet-stream" &&
-    !node.internal.extension
-  )
-}
-
-const isNodeSupported = node => {
-  return isTextFile(node) || isFileWithoutExtension(node)
-}
+const isTextFile = node => (
+  node.internal.type === "File" && node.internal.mediaType === "text/plain"
+)
 
 exports.onCreateNode = async ({
   node,
@@ -23,22 +9,22 @@ exports.onCreateNode = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  if (!isNodeSupported(node)) {
-    return
-  }
+  if (!isTextFile(node)) return
+
   const { createNode, createParentChildLink } = actions
   const content = await loadNodeContent(node)
-  const id = createNodeId(`${node.id} >>> PlainText`)
+  const id = createNodeId(`${node.id} PlainText`)
   const plainTextNode = {
     id,
-    children: [],
     content,
     parent: node.id,
+    children: [],
     internal: {
       contentDigest: createContentDigest(content),
       type: "PlainText",
     },
   }
+
   createNode(plainTextNode)
   createParentChildLink({
     parent: node,
