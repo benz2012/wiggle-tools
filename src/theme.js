@@ -2,7 +2,7 @@ export default {
   spacing: {
     mainWidth: 1000,
     navbar: 72,
-    section: 48,
+    section: 72,
     balls: 192,
     rhythm: 12,
   },

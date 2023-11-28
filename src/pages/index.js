@@ -5,6 +5,7 @@ import { createGlobalStyle } from 'styled-components'
 import theme from '../theme'
 import MainSection from '../sections/MainSection'
 import Section1 from '../sections/Section1'
+import Section2 from '../sections/Section2'
 import NavBar from '../components/NavBar'
 
 const GlobalStyle = createGlobalStyle`
@@ -31,6 +32,7 @@ const IndexPage = () => {
       <NavBar />
       <MainSection data={data} />
       <Section1 data={data} />
+      <Section2 data={data} />
     </>
   )
 }
