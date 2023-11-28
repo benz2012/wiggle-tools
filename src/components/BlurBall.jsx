@@ -16,7 +16,7 @@ const BlurBall = styled.div`
 
   background: radial-gradient(
     ${props => theme.palette[props.variant || 'primary'].main(0.33)},
-    ${theme.palette.background}
+    ${theme.palette.background.main()}
   );
 
   border-radius: ${SIZE / 2}px;

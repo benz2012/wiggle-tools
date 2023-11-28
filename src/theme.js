@@ -1,11 +1,15 @@
 export default {
   spacing: {
     mainWidth: 1000,
-    section: 96,
+    navbar: 72,
+    section: 48,
+    rhythm: 12,
   },
 
   palette: {
-    background: 'rgba(32, 33, 36, 1)',
+    background: {
+      main: opacity => `rgba(32, 33, 36, ${opacity ?? 1})`,
+    },
     primary: {
       main: opacity => `rgba(33, 150, 243, ${opacity ?? 1})`,
     },
