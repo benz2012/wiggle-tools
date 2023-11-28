@@ -9,7 +9,6 @@ import { Heading2, Body } from '../components/typography'
 
 const CenterWideSection = styled(StyledSection)`
   flex-direction: column;
-  color: white;
   background-color: ${theme.palette.primary.main()};
   background-image: url("${spikes}");
   background-size: 50px;
@@ -19,11 +18,11 @@ const CenterWideSection = styled(StyledSection)`
   padding-right: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
 `
 
-const MainSection = ({ data }) => (
+const Section2 = ({ data }) => (
   <CenterWideSection>
     <Heading2>{getContent(data, 'section2-header')}</Heading2>
     <Body style={{ textAlign: 'center' }}>{getContent(data, 'section2-body')}</Body>
   </CenterWideSection>
 )
 
-export default MainSection
+export default Section2

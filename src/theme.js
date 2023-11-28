@@ -1,14 +1,16 @@
 export default {
   spacing: {
     mainWidth: 1000,
+    rhythm: 12,
     navbar: 72,
     section: 72,
     balls: 192,
-    rhythm: 12,
+    card: 208,
   },
 
   palette: {
     background: {
+      dark: opacity => `rgba(15, 15, 17, ${opacity ?? 1})`,
       main: opacity => `rgba(32, 33, 36, ${opacity ?? 1})`,
     },
     primary: {

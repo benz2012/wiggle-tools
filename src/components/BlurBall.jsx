@@ -7,7 +7,7 @@ const SIZE = 400
 const BlurBall = styled.div`
   z-index: -100;
   position: absolute;
-  top: 0px;
+  top: ${props => props.top ? props.top : 0}px;
   left: ${props => props.side === 'left' ? `-${theme.spacing.balls}px` : 'none'};
   right: ${props => props.side === 'right' ? `-${theme.spacing.balls}px` : 'none'};
 
