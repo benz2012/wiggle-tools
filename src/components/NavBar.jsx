@@ -25,6 +25,7 @@ const StyledLinkList = styled.ul`
 const ListItemLink = styled.a`
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  letter-spacing: 1px;
 
   &:hover {
     color: white;
@@ -39,6 +40,7 @@ const StyledHeading = styled(Heading4)`
 const StyledHeadingLink = styled.a`
   text-decoration: none;
   color: ${theme.palette.primary.main()};
+  letter-spacing: 1px;
 `
 
 const NavBar = () => (

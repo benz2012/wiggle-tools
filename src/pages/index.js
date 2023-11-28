@@ -5,7 +5,6 @@ import { createGlobalStyle } from 'styled-components'
 import theme from '../theme'
 import MainSection from '../sections/MainSection'
 import Section1 from '../sections/Section1'
-import BlurBall from '../components/BlurBall'
 import NavBar from '../components/NavBar'
 
 const GlobalStyle = createGlobalStyle`
@@ -32,8 +31,6 @@ const IndexPage = () => {
       <NavBar />
       <MainSection data={data} />
       <Section1 data={data} />
-      <BlurBall top="50" side="left" />
-      <BlurBall top="500" side="right" variant="secondary" />
     </>
   )
 }

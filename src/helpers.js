@@ -1,5 +1,12 @@
 const getContent = (data, contentName) => {
-  return data.allFile.nodes.find(n => n.name === contentName).childrenPlainText[0].content;
+  const plainTextContent = data
+    .allFile
+    .nodes
+    .find(n => n.name === contentName)
+    .childrenPlainText[0]
+    .content
+
+  return plainTextContent;
 }
 
 export { getContent }

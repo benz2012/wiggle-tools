@@ -3,14 +3,15 @@ import styled, { css } from "styled-components"
 import theme from '../theme'
 
 const common = css`
-  padding-top: ${theme.spacing.section}px;
-  padding-bottom: ${theme.spacing.section}px;
+  position: relative;
   width: ${theme.spacing.mainWidth}px;
   margin: auto;
+  padding-top: ${theme.spacing.section}px;
+  padding-bottom: ${theme.spacing.section}px;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 `
 
 export const StyledMain = styled.main`

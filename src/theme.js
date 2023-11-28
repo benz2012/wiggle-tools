@@ -3,6 +3,7 @@ export default {
     mainWidth: 1000,
     navbar: 72,
     section: 48,
+    balls: 192,
     rhythm: 12,
   },
 
