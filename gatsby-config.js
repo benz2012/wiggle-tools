@@ -7,8 +7,10 @@ module.exports = {
     siteUrl: `https://www.wiggle.tools`
   },
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-sitemap",
+    `gatsby-plugin-styled-components`,
+
+    `gatsby-plugin-preload-fonts`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,5 +18,7 @@ module.exports = {
         path: `${__dirname}/src/content/`,
       },
     },
+
+    `gatsby-plugin-sitemap`,
   ]
 };
