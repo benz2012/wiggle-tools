@@ -22,10 +22,12 @@ const ButtonContainer = styled.button`
   }
 `
 
-const Button = ({ children }) => (
-  <ButtonContainer>
-    {children}
-  </ButtonContainer>
-)
+const Button = ({ children, onClick }) => {
+  return (
+    <ButtonContainer onClick={onClick}>
+      {children}
+    </ButtonContainer>
+  )
+}
 
 export default Button

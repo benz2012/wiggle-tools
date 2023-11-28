@@ -50,7 +50,7 @@ export const Heading6 = styled.h6`
 export const Body = styled.p`
   ${common}
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 `
