@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import animateExample from '../images/animate-example2.png'
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 
 import { getContent } from '../helpers'
@@ -9,6 +10,10 @@ import { Heading2, Body } from '../components/typography'
 import { TextChunk, SplashChunk } from '../components/chunks'
 import BlurBall from '../components/BlurBall'
 import ButtonLink from '../components/ButtonLink'
+
+const StyledImage = styled.img`
+  width: 440px;
+`
 
 const StyledArrow = styled(Arrow)`
   color: white;
@@ -19,10 +24,10 @@ const StyledArrow = styled(Arrow)`
 `
 
 const Section1 = ({ data }) => (
-  <StyledSection>
+  <StyledSection id="featured">
     <BlurBall side="right" variant="secondary" />
     <SplashChunk>
-      <div style={{ width: 200, height: 200, backgroundColor: 'orange' }} />
+      <StyledImage src={animateExample} alt="A screenshot of a vector-graphics animator that runs in the web browser." />
     </SplashChunk>
     <TextChunk>
       <Heading2 style={{ whiteSpace: 'pre-wrap' }}>{getContent(data, 'section1-header')}</Heading2>
