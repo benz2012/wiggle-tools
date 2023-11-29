@@ -48,7 +48,7 @@ const Description = styled(Body)`
 `
 
 const Section3 = ({ data }) => (
-  <CenterWideSection>
+  <CenterWideSection id="tools">
     <BlurBall side="left" top="150" />
     <Heading2>{getContent(data, 'section3-header')}</Heading2>
 

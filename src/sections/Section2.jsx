@@ -19,7 +19,7 @@ const CenterWideSection = styled(StyledSection)`
 `
 
 const Section2 = ({ data }) => (
-  <CenterWideSection>
+  <CenterWideSection id="about">
     <Heading2>{getContent(data, 'section2-header')}</Heading2>
     <Body style={{ textAlign: 'center' }}>{getContent(data, 'section2-body')}</Body>
   </CenterWideSection>
