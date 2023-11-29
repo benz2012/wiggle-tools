@@ -1,4 +1,4 @@
-export default {
+const theme = {
   spacing: {
     mainWidth: 1000,
     rhythm: 12,
@@ -24,3 +24,5 @@ export default {
     },
   },
 }
+
+export default theme

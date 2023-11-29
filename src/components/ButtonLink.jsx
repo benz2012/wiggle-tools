@@ -7,10 +7,16 @@ const StyledAnchor = styled.a`
   text-decoration: none;
 `
 
-const ButtonLink = ({ children, linkTo, ...rest }) => (
-  <StyledAnchor href={linkTo}>
-    <Button {...rest}>{children}</Button>
-  </StyledAnchor>
-)
+const ButtonLink = ({ children, linkTo, newTab = false, ...rest }) => {
+  const tabProps = newTab ? {
+    target: '_blank',
+    rel: 'noreferrer noopener',
+  } : {}
+  return (
+    <StyledAnchor href={linkTo} {...tabProps}>
+      <Button {...rest}>{children}</Button>
+    </StyledAnchor>
+  )
+}
 
 export default ButtonLink
