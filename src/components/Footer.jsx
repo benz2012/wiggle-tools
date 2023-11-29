@@ -4,12 +4,14 @@ import styled from 'styled-components'
 import theme from '../theme'
 import { Heading4 } from './typography'
 
-const StyledNav = styled.nav`
+const StyledFooter = styled.footer`
   width: ${theme.spacing.mainWidth}px;
   height: ${theme.spacing.navbar}px;
 
   padding-left: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
   padding-right: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
+  margin-top: 100px;
+  background-color: ${theme.palette.primary.main()};
 
   display: flex;
   align-items: center;
@@ -38,11 +40,11 @@ const StyledHeading = styled(Heading4)`
 
 const StyledHeadingLink = styled.a`
   text-decoration: none;
-  color: ${theme.palette.primary.main()};
+  color: white;
 `
 
 const NavBar = () => (
-  <StyledNav>
+  <StyledFooter>
     <StyledHeading>
       <StyledHeadingLink href="/">
         Wiggle Tools
@@ -50,10 +52,14 @@ const NavBar = () => (
     </StyledHeading>
 
     <StyledLinkList>
-      <li><ListItemLink href="#tools">Tools</ListItemLink></li>
-      <li><ListItemLink href="#about">About</ListItemLink></li>
+      <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Made by Ben Zenker</li>
+      <li>
+        <ListItemLink href="https://www.linkedin.com/in/benzenker" target="_blank" rel="noreferrer noopener">
+          LinkedIn
+        </ListItemLink>
+      </li>
     </StyledLinkList>
-  </StyledNav>
+  </StyledFooter>
 )
 
 export default NavBar
