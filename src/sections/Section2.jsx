@@ -21,7 +21,7 @@ const CenterWideSection = styled(StyledSection)`
 const Section2 = ({ data }) => (
   <CenterWideSection id="about">
     <Heading2>{getContent(data, 'section2-header')}</Heading2>
-    <Body style={{ textAlign: 'center' }}>{getContent(data, 'section2-body')}</Body>
+    <Body style={{ textAlign: 'center', whiteSpace: 'pre-wrap' }}>{getContent(data, 'section2-body')}</Body>
   </CenterWideSection>
 )
 

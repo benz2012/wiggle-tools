@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import animateExample from '../images/animate-example2.png'
+import animateExample from '../images/animate-example.png'
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 
 import { getContent } from '../helpers'
