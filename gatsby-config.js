@@ -12,14 +12,6 @@ module.exports = {
     `gatsby-plugin-preload-fonts`,
 
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `content`,
-        path: `${__dirname}/src/content/`,
-      },
-    },
-
-    {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {

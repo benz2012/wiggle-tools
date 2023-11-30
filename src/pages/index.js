@@ -1,4 +1,3 @@
-import { useStaticQuery, graphql } from 'gatsby'
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 
@@ -23,26 +22,19 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const IndexPage = () => {
-  const data = useStaticQuery(graphql` query { allFile { nodes {
-    name
-    childrenPlainText { content }
-  }}}`)
+export const Head = () => <title>Wiggle Tools - Homepage</title>
 
-  return (
-    <>
-      <GlobalStyle />
-      <NavBar />
-      <SectionMain data={data} />
-      <SectionFeatured data={data} />
-      <SectionMission data={data} />
-      <SectionSuite data={data} />
-      <SectionOffline data={data} />
-      <Footer />
-    </>
-  )
-}
+const IndexPage = () => (
+  <>
+    <GlobalStyle />
+    <NavBar />
+    <SectionMain />
+    <SectionFeatured />
+    <SectionMission />
+    <SectionSuite />
+    <SectionOffline />
+    <Footer />
+  </>
+)
 
 export default IndexPage
-
-export const Head = () => <title>Wiggle Tools - Homepage</title>

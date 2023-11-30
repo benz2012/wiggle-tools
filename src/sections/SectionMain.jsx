@@ -1,21 +1,27 @@
 import React from 'react'
 
 import theme from '../theme'
-import { getContent } from '../helpers'
 import { Heading2, Body } from '../components/typography'
 import { StyledMain } from '../components/sections'
 import { TextChunk, SplashChunk } from '../components/chunks'
 import BlurBall from '../components/BlurBall'
 import ButtonLink from '../components/ButtonLink'
 
-const SectionMain = ({ data }) => (
+const SectionMain = () => (
   <StyledMain>
     <BlurBall top="0" side="left" />
     <TextChunk>
-      <Heading2>{getContent(data, 'section0-header')}</Heading2>
-      <Body style={{ whiteSpace: 'pre-wrap' }}>{getContent(data, 'section0-body')}</Body>
+      <Heading2>
+        Create Visual Assets, Fast. Free Forever.
+      </Heading2>
+      <Body style={{ whiteSpace: 'pre-wrap' }}>
+        Built for the modern era, and stripped of unnecessary bloat,
+        Wiggle Tools enable you to create simplistic visual assets for use in larger projects or other applications.<br />
+        Free and Open-Source forever.
+      </Body>
       <ButtonLink linkTo="#about">Learn More</ButtonLink>
     </TextChunk>
+
     <SplashChunk style={{ position: 'relative' }}>
       <div style={{ width: 320, height: 180, backgroundColor: 'rgb(15, 15, 15)', borderRadius: 12, zIndex: 100 }} />
 

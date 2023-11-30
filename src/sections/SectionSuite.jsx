@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import theme from '../theme'
 import BlurBall from '../components/BlurBall'
-import { getContent } from '../helpers'
 import { StyledSection } from '../components/sections'
 import { Heading2, Heading6, Body } from '../components/typography'
 
@@ -47,10 +46,12 @@ const Description = styled(Body)`
   font-size: 14px;
 `
 
-const SectionSuite = ({ data }) => (
+const SectionSuite = () => (
   <CenterWideSection id="tools">
     <BlurBall side="left" top="150" />
-    <Heading2>{getContent(data, 'section3-header')}</Heading2>
+    <Heading2>
+      The Wiggle Suite
+    </Heading2>
 
     <ToolsContainer>
       <ToolItem>
