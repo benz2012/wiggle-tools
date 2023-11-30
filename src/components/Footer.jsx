@@ -52,10 +52,10 @@ const NavBar = () => (
     </StyledHeading>
 
     <StyledLinkList>
-      <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Made by Ben Zenker</li>
-      <li>
+      <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+        Made by{' '}
         <ListItemLink href="https://www.linkedin.com/in/benzenker" target="_blank" rel="noreferrer noopener">
-          LinkedIn
+          Ben Zenker
         </ListItemLink>
       </li>
     </StyledLinkList>
