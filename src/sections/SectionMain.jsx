@@ -9,12 +9,13 @@ import ButtonLink from '../components/ButtonLink'
 
 const SectionMain = () => (
   <StyledMain>
-    <BlurBall top="0" side="left" />
+    <BlurBall top="0" left={-1 * theme.spacing.balls} />
+
     <TextChunk>
       <Heading2>
         Create Visual Assets, Fast. Free Forever.
       </Heading2>
-      <Body style={{ whiteSpace: 'pre-wrap' }}>
+      <Body>
         Built for the modern era, and stripped of unnecessary bloat,
         Wiggle Tools enable you to create simplistic visual assets for use in larger projects or other applications.<br />
         Free and Open-Source forever.

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import animateExample from '../images/animate-example.png'
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 
+import theme from '../theme'
 import { StyledSection } from '../components/sections'
 import { Heading2, Body } from '../components/typography'
 import { TextChunk, SplashChunk } from '../components/chunks'
@@ -24,13 +25,14 @@ const StyledArrow = styled(Arrow)`
 
 const SectionFeatured = () => (
   <StyledSection id="featured">
-    <BlurBall side="right" variant="secondary" />
+    <BlurBall right={-1 * theme.spacing.balls} variant="secondary" />
+
     <SplashChunk>
       <StyledImage src={animateExample} alt="A screenshot of a vector-graphics animator that runs in the web browser." />
     </SplashChunk>
 
     <TextChunk>
-      <Heading2 style={{ whiteSpace: 'pre-wrap' }}>
+      <Heading2>
         Featured Tool:<br />
         Wiggle Animate
       </Heading2>

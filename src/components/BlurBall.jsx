@@ -8,8 +8,8 @@ const BlurBall = styled.div`
   z-index: -100;
   position: absolute;
   top: ${props => props.top ? props.top : 0}px;
-  left: ${props => props.side === 'left' ? `-${theme.spacing.balls}px` : 'none'};
-  right: ${props => props.side === 'right' ? `-${theme.spacing.balls}px` : 'none'};
+  left: ${props => props.left != null ? `${props.left}px` : 'none'};
+  right: ${props => props.right != null ? `${props.right}px` : 'none'};
 
   width: ${SIZE}px;
   height: ${SIZE}px;

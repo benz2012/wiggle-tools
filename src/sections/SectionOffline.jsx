@@ -13,7 +13,7 @@ const TextChunkRight = styled(TextChunk)`
 
 const SectionOffline = () => (
   <StyledSection style={{ width: theme.spacing.mainWidth - 200 }}>
-    <BlurBall top="100" side="right" variant="secondary" />
+    <BlurBall top="100" right="-300" variant="secondary" />
 
     <TextChunkRight>
       <Heading2>

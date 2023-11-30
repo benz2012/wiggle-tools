@@ -9,7 +9,6 @@ import { Heading2, Heading6, Body } from '../components/typography'
 const CenterWideSection = styled(StyledSection)`
   flex-direction: column;
 
-  width: ${theme.spacing.mainWidth}px;
   padding-left: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
   padding-right: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
 `
@@ -48,7 +47,8 @@ const Description = styled(Body)`
 
 const SectionSuite = () => (
   <CenterWideSection id="tools">
-    <BlurBall side="left" top="150" />
+    <BlurBall top="150" left="0" />
+
     <Heading2>
       The Wiggle Suite
     </Heading2>
