@@ -1,4 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
+
+import wiggleWithIt from '../images/wiggle-with-it-002.gif'
 
 import theme from '../theme'
 import { Heading2, Body } from '../components/typography'
@@ -6,6 +9,16 @@ import { StyledMain } from '../components/sections'
 import { TextChunk, SplashChunk } from '../components/chunks'
 import BlurBall from '../components/BlurBall'
 import ButtonLink from '../components/ButtonLink'
+
+const GIFContainer = styled.figure`
+  width: 320px;
+  height: 180px;
+  z-index: 100;
+
+  background-color: ${theme.palette.background.dark()};
+  border-radius: 12px;
+  overflow:hidden;
+`
 
 const SectionMain = () => (
   <StyledMain>
@@ -24,7 +37,9 @@ const SectionMain = () => (
     </TextChunk>
 
     <SplashChunk style={{ position: 'relative' }}>
-      <div style={{ width: 320, height: 180, backgroundColor: 'rgb(15, 15, 15)', borderRadius: 12, zIndex: 100 }} />
+      <GIFContainer>
+        <img src={wiggleWithIt} alt="wiggle with it" />
+      </GIFContainer>
 
       <div style={{
         width: 150,
