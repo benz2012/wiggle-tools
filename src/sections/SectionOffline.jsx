@@ -12,7 +12,7 @@ const TextChunkRight = styled(TextChunk)`
   text-align: right;
 `
 
-const Section4 = ({ data }) => (
+const SectionOffline = ({ data }) => (
   <StyledSection style={{ width: theme.spacing.mainWidth - 200 }}>
     <BlurBall top="100" side="right" variant="secondary" />
     <TextChunkRight>
@@ -25,4 +25,4 @@ const Section4 = ({ data }) => (
   </StyledSection>
 )
 
-export default Section4
+export default SectionOffline

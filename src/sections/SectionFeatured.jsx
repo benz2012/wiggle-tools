@@ -23,7 +23,7 @@ const StyledArrow = styled(Arrow)`
   padding-left: 4px;
 `
 
-const Section1 = ({ data }) => (
+const SectionFeatured = ({ data }) => (
   <StyledSection id="featured">
     <BlurBall side="right" variant="secondary" />
     <SplashChunk>
@@ -40,4 +40,4 @@ const Section1 = ({ data }) => (
   </StyledSection>
 )
 
-export default Section1
+export default SectionFeatured

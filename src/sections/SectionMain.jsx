@@ -8,7 +8,7 @@ import { TextChunk, SplashChunk } from '../components/chunks'
 import BlurBall from '../components/BlurBall'
 import ButtonLink from '../components/ButtonLink'
 
-const Section0 = ({ data }) => (
+const SectionMain = ({ data }) => (
   <StyledMain>
     <BlurBall top="0" side="left" />
     <TextChunk>
@@ -64,4 +64,4 @@ const Section0 = ({ data }) => (
   </StyledMain>
 )
 
-export default Section0
+export default SectionMain

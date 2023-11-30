@@ -47,7 +47,7 @@ const Description = styled(Body)`
   font-size: 14px;
 `
 
-const Section3 = ({ data }) => (
+const SectionSuite = ({ data }) => (
   <CenterWideSection id="tools">
     <BlurBall side="left" top="150" />
     <Heading2>{getContent(data, 'section3-header')}</Heading2>
@@ -80,4 +80,4 @@ const Section3 = ({ data }) => (
   </CenterWideSection>
 )
 
-export default Section3
+export default SectionSuite

@@ -18,11 +18,11 @@ const CenterWideSection = styled(StyledSection)`
   padding-right: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
 `
 
-const Section2 = ({ data }) => (
+const SectionMission = ({ data }) => (
   <CenterWideSection id="about">
     <Heading2>{getContent(data, 'section2-header')}</Heading2>
     <Body style={{ textAlign: 'center', whiteSpace: 'pre-wrap' }}>{getContent(data, 'section2-body')}</Body>
   </CenterWideSection>
 )
 
-export default Section2
+export default SectionMission

@@ -4,11 +4,11 @@ import { createGlobalStyle } from 'styled-components'
 
 import theme from '../theme'
 import NavBar from '../components/NavBar'
-import Section0 from '../sections/Section0'
-import Section1 from '../sections/Section1'
-import Section2 from '../sections/Section2'
-import Section3 from '../sections/Section3'
-import Section4 from '../sections/Section4'
+import SectionMain from '../sections/SectionMain'
+import SectionFeatured from '../sections/SectionFeatured'
+import SectionMission from '../sections/SectionMission'
+import SectionSuite from '../sections/SectionSuite'
+import SectionOffline from '../sections/SectionOffline'
 import Footer from '../components/Footer'
 
 const GlobalStyle = createGlobalStyle`
@@ -33,11 +33,11 @@ const IndexPage = () => {
     <>
       <GlobalStyle />
       <NavBar />
-      <Section0 data={data} />
-      <Section1 data={data} />
-      <Section2 data={data} />
-      <Section3 data={data} />
-      <Section4 data={data} />
+      <SectionMain data={data} />
+      <SectionFeatured data={data} />
+      <SectionMission data={data} />
+      <SectionSuite data={data} />
+      <SectionOffline data={data} />
       <Footer />
     </>
   )
