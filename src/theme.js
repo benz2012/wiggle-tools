@@ -22,6 +22,10 @@ const theme = {
     tertiary: {
       main: opacity => `rgba(255, 208, 66, ${opacity ?? 1})`,
     },
+    disabled: {
+      main: opacity => `rgba(135, 140, 145, ${opacity ?? 1})`,
+      text: opacity => `rgba(255, 255, 255, ${opacity ?? 0.5})`,
+    },
   },
 }
 

@@ -1,14 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import DownloadIcon from '../svgs/download_FILL0_wght400_GRAD0_opsz24.svg'
+
 import theme from '../theme'
 import { StyledSection } from '../components/sections'
 import { Heading2, Body } from '../components/typography'
 import { TextChunk, SplashChunk } from '../components/chunks'
 import BlurBall from '../components/BlurBall'
+import Button from '../components/Button'
 
 const TextChunkRight = styled(TextChunk)`
   text-align: right;
+`
+
+const DownloadButton = styled(Button)`
+  min-width: 180px;
+`
+
+const StyledDownload = styled(DownloadIcon)`
+  color: white;
+  height: 16px;
+  width: 16px;
+  margin-left: -4px;
+  padding-right: 4px;
 `
 
 const SectionOffline = () => (
@@ -24,8 +39,23 @@ const SectionOffline = () => (
       </Body>
     </TextChunkRight>
 
-    <SplashChunk>
-      <div style={{ width: 200, height: 200, backgroundColor: 'purple' }} />
+    <SplashChunk style={{ gap: theme.spacing.rhythm }}>
+      <DownloadButton>
+        <StyledDownload />
+        Wiggle Animate
+      </DownloadButton>
+
+      <DownloadButton disabled>
+        More
+      </DownloadButton>
+
+      <DownloadButton disabled>
+        Goodies
+      </DownloadButton>
+
+      <DownloadButton disabled>
+        Later
+      </DownloadButton>
     </SplashChunk>
   </StyledSection>
 )
