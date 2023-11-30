@@ -3,9 +3,10 @@ import styled from 'styled-components'
 
 import theme from '../theme'
 
-const ButtonContainer = styled.button`
+const ButtonDefault = styled.button`
   background-color: ${props => theme.palette[props.color || 'secondary'].main()};
 
+  width: ${props => props.fullWidth ? '100%' : 'unset'};
   padding: ${theme.spacing.rhythm}px ${theme.spacing.rhythm * 2}px;
   border-radius: 8px;
   border: none;
@@ -25,16 +26,30 @@ const ButtonContainer = styled.button`
   }
 `
 
-const Button = ({ children, onClick, disabled, ...rest }) => {
+const ButtonOutlined = styled(ButtonDefault)`
+  background-color: transparent;
+  border: 1px solid ${props => theme.palette[props.color || 'secondary'].main()};
+  color: ${props => theme.palette[props.color || 'secondary'].main()};
+
+  &:hover {
+    background-color: ${props => theme.palette[props.color || 'secondary'].main(0.2)};
+  }
+`
+
+const Button = ({ children, onClick, disabled, outlined, ...rest }) => {
+  let ButtonComponent = ButtonDefault
+  if (outlined) {
+    ButtonComponent = ButtonOutlined
+  }
   return (
-    <ButtonContainer
+    <ButtonComponent
       onClick={disabled ? (() => null) : onClick}
       color={disabled ? 'disabled' : rest.color}
       disabled={disabled}
       {...rest}
     >
       {children}
-    </ButtonContainer>
+    </ButtonComponent>
   )
 }
 
