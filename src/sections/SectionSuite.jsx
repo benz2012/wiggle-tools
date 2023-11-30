@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
+
 import theme from '../theme'
 import BlurBall from '../components/BlurBall'
+import ButtonLink from '../components/ButtonLink'
 import { StyledSection } from '../components/sections'
 import { Heading2, Heading6, Body } from '../components/typography'
 
@@ -20,11 +23,10 @@ const ToolsContainer = styled.div`
   gap: ${theme.spacing.rhythm * 2}px;
 `
 
-const ToolItem = styled.div`
+const ToolContainer = styled.div`
   width: ${theme.spacing.card}px;
-  height: 276px;
   background-color: ${theme.palette.background.dark(0.9)};
-  border-radius: 8px;
+  border-radius: 16px;
   padding: ${theme.spacing.rhythm}px;
 
   display: flex;
@@ -43,6 +45,14 @@ const FakeIcon = styled.div`
 const Description = styled(Body)`
   text-align: center;
   font-size: 14px;
+  margin-bottom: 12px;
+`
+
+const StyledArrow = styled(Arrow)`
+  height: 16px;
+  width: 16px;
+  margin-right: -4px;
+  padding-left: 4px;
 `
 
 const SectionSuite = () => (
@@ -54,29 +64,35 @@ const SectionSuite = () => (
     </Heading2>
 
     <ToolsContainer>
-      <ToolItem>
+      <ToolContainer>
         <FakeIcon />
         <Heading6>Wiggle Animate</Heading6>
-        <Description>Here is one sentance about the product, and some words</Description>
-      </ToolItem>
+        <Description>
+          A vector-based motion graphics animation tool. Dozens of properties, keyframe control, and curve editors.
+        </Description>
+        <ButtonLink outlined fullWidth linkTo="https://wiggle.tools/animate" newTab>
+          Open Tool
+          <StyledArrow />
+        </ButtonLink>
+      </ToolContainer>
 
-      <ToolItem>
+      <ToolContainer>
         <FakeIcon />
         <Heading6>Wiggle Edit</Heading6>
         <Description>Here is one sentance about the product, and some words</Description>
-      </ToolItem>
+      </ToolContainer>
 
-      <ToolItem>
+      <ToolContainer>
         <FakeIcon />
         <Heading6>Wiggle Pixel</Heading6>
         <Description>Here is one sentance about the product, and some words</Description>
-      </ToolItem>
+      </ToolContainer>
 
-      <ToolItem>
+      <ToolContainer>
         <FakeIcon />
         <Heading6>Wiggle Convert</Heading6>
         <Description>Here is one sentance about the product, and some words</Description>
-      </ToolItem>
+      </ToolContainer>
     </ToolsContainer>
   </CenterWideSection>
 )

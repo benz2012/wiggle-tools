@@ -16,7 +16,6 @@ const StyledImage = styled.img`
 `
 
 const StyledArrow = styled(Arrow)`
-  color: white;
   height: 16px;
   width: 16px;
   margin-right: -4px;
