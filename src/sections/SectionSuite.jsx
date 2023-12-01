@@ -2,10 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
+import Bounce from '../svgs/bounce.svg'
+import Cut from '../svgs/cut.svg'
 
 import theme from '../theme'
 import BlurBall from '../components/BlurBall'
 import ButtonLink from '../components/ButtonLink'
+import VoteButton from '../components/VoteButton'
 import { StyledSection } from '../components/sections'
 import { Heading2, Heading6, Body } from '../components/typography'
 
@@ -34,18 +37,21 @@ const ToolContainer = styled.div`
   align-items: center;
 `
 
-const FakeIcon = styled.div`
-  width: 120px;
-  height: 120px;
-  border-radius: 120px;
+const IconCircle = styled.div`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   background-color: ${theme.palette.secondary.main()};
   margin: ${theme.spacing.rhythm}px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const Description = styled(Body)`
   text-align: center;
   font-size: 14px;
-  margin-bottom: 12px;
+  margin-bottom: ${theme.spacing.rhythm * 2}px;
 `
 
 const StyledArrow = styled(Arrow)`
@@ -65,7 +71,9 @@ const SectionSuite = () => (
 
     <ToolsContainer>
       <ToolContainer>
-        <FakeIcon />
+        <IconCircle>
+          <Bounce style={{ width: '60%', height: '60%', marginTop: 3, marginLeft: 3 }} />
+        </IconCircle>
         <Heading6>Wiggle Animate</Heading6>
         <Description>
           A vector-based motion graphics animation tool. Dozens of properties, keyframe control, and curve editors.
@@ -77,19 +85,22 @@ const SectionSuite = () => (
       </ToolContainer>
 
       <ToolContainer>
-        <FakeIcon />
+        <IconCircle>
+          <Cut style={{ width: '48%', height: '48%', marginTop: 6 }} />
+        </IconCircle>
         <Heading6>Wiggle Edit</Heading6>
-        <Description>Here is one sentance about the product, and some words</Description>
+        <Description>A video editor so simple you'll never get lost. Cut, Layer, Export.<br /><br />Gauging Interest.</Description>
+        <VoteButton total={45} />
       </ToolContainer>
 
       <ToolContainer>
-        <FakeIcon />
+        <IconCircle />
         <Heading6>Wiggle Pixel</Heading6>
         <Description>Here is one sentance about the product, and some words</Description>
       </ToolContainer>
 
       <ToolContainer>
-        <FakeIcon />
+        <IconCircle />
         <Heading6>Wiggle Convert</Heading6>
         <Description>Here is one sentance about the product, and some words</Description>
       </ToolContainer>
