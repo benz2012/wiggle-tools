@@ -5,6 +5,7 @@ import Button from './Button'
 
 const StyledAnchor = styled.a`
   text-decoration: none;
+  display: inline-block;
   width: ${props => props.fullWidth ? '100%' : 'unset'};
 `
 
