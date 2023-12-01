@@ -29,6 +29,11 @@ const WiggleText = styled.div`
   letter-spacing: 2px;
   color: ${props => props.color};
   transition: transform 500ms ease;
+  z-index: 110;
+
+  @media (prefers-reduced-motion) {
+    z-index: 111;
+  }
 `
 
 const SectionMain = () => {
@@ -53,7 +58,11 @@ const SectionMain = () => {
         setTimeout(oneWig, nextWait)
       }
 
-      oneWig()
+      // Only Start the Animation Loop if z-index is 100
+      // z-index of 111 represents reduced motion, so we never start the animation
+      const zIndexForElm = window.getComputedStyle(wiggleTexts[wiggleId].current)['z-index']
+      console.log(zIndexForElm)
+      if (zIndexForElm === '110') { oneWig() }
     })
 
     return () => {
