@@ -40,7 +40,9 @@ const SectionOffline = () => (
     </TextChunkRight>
 
     <SplashChunk style={{ gap: theme.spacing.rhythm }}>
-      <DownloadButton>
+      <DownloadButton onClick={() => {
+        alert('Coming Soon! Sorry.')
+      }}>
         <StyledDownload />
         Wiggle Animate
       </DownloadButton>
