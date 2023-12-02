@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import theme from '../theme'
@@ -43,23 +43,47 @@ const StyledHeadingLink = styled.a`
   color: white;
 `
 
-const NavBar = () => (
-  <StyledFooter>
-    <StyledHeading>
-      <StyledHeadingLink href="/">
-        Wiggle Tools
-      </StyledHeadingLink>
-    </StyledHeading>
+const CreditsFooter = styled(StyledFooter)`
+  margin: 0;
+  justify-content: flex-end;
+`
 
-    <StyledLinkList>
-      <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-        Made by{' '}
-        <ListItemLink href="https://www.linkedin.com/in/benzenker" target="_blank" rel="noreferrer noopener">
-          Ben Zenker
-        </ListItemLink>
-      </li>
-    </StyledLinkList>
-  </StyledFooter>
-)
+const NavBar = () => {
+  const [credits, showCredits] = useState(false)
+
+  return (
+    <>
+      <StyledFooter>
+        <StyledHeading>
+          <StyledHeadingLink href="/">
+            Wiggle Tools
+          </StyledHeadingLink>
+        </StyledHeading>
+
+        <StyledLinkList>
+          <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+            Made by{' '}
+            <ListItemLink href="https://www.linkedin.com/in/benzenker" target="_blank" rel="noreferrer noopener">
+              Ben Zenker
+            </ListItemLink>
+          </li>
+          <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+            <ListItemLink href="#credits" onClick={() => showCredits(!credits)}>
+              {credits ? 'Hide Credits' : 'Show Credits'}
+            </ListItemLink>
+          </li>
+        </StyledLinkList>
+      </StyledFooter>
+
+      {credits && (
+        <CreditsFooter>
+          <ul>
+            <li><a href="https://www.flaticon.com/free-icons/special-effects" title="special effects icons">Special effects icons created by Freepik - Flaticon</a></li>
+          </ul>
+        </CreditsFooter>
+      )}
+    </>
+  )
+}
 
 export default NavBar
