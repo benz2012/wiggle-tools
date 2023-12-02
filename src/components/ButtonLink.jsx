@@ -15,7 +15,7 @@ const ButtonLink = ({ children, linkTo, newTab = false, ...rest }) => {
     rel: 'noreferrer noopener',
   } : {}
   return (
-    <StyledAnchor href={linkTo} $fullWidth={rest.fullWidth} {...tabProps}>
+    <StyledAnchor href={linkTo} $fullWidth={rest.$fullWidth} {...tabProps}>
       <Button noTabIndex {...rest}>{children}</Button>
     </StyledAnchor>
   )

@@ -19,7 +19,7 @@ const ButtonDefault = styled.button`
   color: ${props => props.disabled ? theme.palette.disabled.text() : 'white'};
   font-size: 14px;
 
-  ${props => props.disabled === false && css`
+  ${props => !props.disabled && css`
     &:hover, &:focus {
       background-color: ${props => theme.palette[props.color || 'secondary'].main(0.8)};
     }
@@ -31,7 +31,7 @@ const ButtonOutlined = styled(ButtonDefault)`
   border: 1px solid ${props => theme.palette[props.color || 'secondary'].main()};
   color: ${props => theme.palette[props.color || 'secondary'].main()};
 
-  ${props => props.disabled === false && css`
+  ${props => !props.disabled && css`
     &:hover, &:focus {
       background-color: ${props => theme.palette[props.color || 'secondary'].main(0.2)};
 
