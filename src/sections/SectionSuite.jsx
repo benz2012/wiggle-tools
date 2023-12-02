@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { getDatabase, ref, push, set } from "firebase/database"
 
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 import Bounce from '../svgs/bounce.svg'
@@ -79,8 +80,14 @@ const QuestionMark = styled.div`
   color: white;
 `
 
-const SectionSuite = () => {
+const SectionSuite = ({ database }) => {
   const [ideaValue, setIdeaValue] = useState('')
+
+  const submitToolIdea = (toolIdea) => {
+    const toolIdeasListRef = ref(database, 'toolIdeas')
+    const newToolIdeaRef = push(toolIdeasListRef)
+    set(newToolIdeaRef, toolIdea)
+  }
 
   return (
     <CenterWideSection id="tools">
@@ -140,6 +147,7 @@ const SectionSuite = () => {
           <InputAndSubmit
             value={ideaValue}
             onChange={(event) => setIdeaValue(event.target.value)}
+            onSubmit={(value) => { submitToolIdea(value) }}
           />
         </ToolContainer>
       </ToolsContainer>

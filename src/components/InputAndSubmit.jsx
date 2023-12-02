@@ -30,11 +30,12 @@ const SendItIcon = styled(SendIt)`
   transform: rotate(-90deg);
 `
 
-const InputAndSubmit = ({ value, onChange }) => {
+const InputAndSubmit = ({ value, onChange, onSubmit }) => {
   return (
     <Container>
       <InputBox value={value} onChange={onChange} placeholder="Tool Idea" />
       <Button
+        onClick={() => onSubmit(value)}
         color="grey"
         outlined
         style={{

@@ -19,6 +19,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@fontsource/roboto-slab": "^5.0.17",
     "babel-plugin-styled-components": "^2.1.4",
+    "firebase": "^10.7.0",
     "gatsby": "^5.12.4",
     "gatsby-plugin-preload-fonts": "^4.12.1",
     "gatsby-plugin-react-svg": "^3.3.0",
