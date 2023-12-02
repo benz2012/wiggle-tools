@@ -12,6 +12,10 @@
         "destination": "/animate/index.html"
       },
       {
+        "source": "/front/",
+        "destination": "/front/index.html"
+      },
+      {
         "source": "**",
         "destination": "/front/index.html"
       }
