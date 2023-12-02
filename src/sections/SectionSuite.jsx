@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { ref, push, set } from "firebase/database"
+import { ref, push, set, getDatabase } from 'firebase/database'
 
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 import Bounce from '../svgs/bounce.svg'
@@ -80,13 +80,16 @@ const QuestionMark = styled.div`
   color: white;
 `
 
-const SectionSuite = ({ database }) => {
+const SectionSuite = () => {
   const [ideaValue, setIdeaValue] = useState('')
+  const [ideaSubmitted, setIdeaSubmitted] = useState(false)
 
   const submitToolIdea = (toolIdea) => {
-    const toolIdeasListRef = ref(database, 'toolIdeas')
+    const db = getDatabase()
+    const toolIdeasListRef = ref(db, 'toolIdeas')
     const newToolIdeaRef = push(toolIdeasListRef)
     set(newToolIdeaRef, toolIdea)
+    setIdeaSubmitted(true)
   }
 
   return (
@@ -148,6 +151,7 @@ const SectionSuite = ({ database }) => {
             value={ideaValue}
             onChange={(event) => setIdeaValue(event.target.value)}
             onSubmit={(value) => { submitToolIdea(value) }}
+            submissionDone={ideaSubmitted}
           />
         </ToolContainer>
       </ToolsContainer>

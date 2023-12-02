@@ -1,7 +1,6 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { initializeApp } from 'firebase/app'
-import { getDatabase } from 'firebase/database'
+import { getAuth, signInAnonymously } from 'firebase/auth'
 
 import theme from '../theme'
 import NavBar from '../components/NavBar'
@@ -12,17 +11,8 @@ import SectionSuite from '../sections/SectionSuite'
 import SectionOffline from '../sections/SectionOffline'
 import Footer from '../components/Footer'
 
-// Initialize Firebase
-const app = initializeApp({
-  apiKey: "AIzaSyBNBuGnLIcqDwPz9zcT_ih101xWkAY7MxA",
-  authDomain: "wiggle-tools.firebaseapp.com",
-  databaseURL: "https://wiggle-tools-default-rtdb.firebaseio.com",
-  projectId: "wiggle-tools",
-  storageBucket: "wiggle-tools.appspot.com",
-  messagingSenderId: "964928791153",
-  appId: "1:964928791153:web:4abc0209e2bde0d262f1d0"
-})
-const database = getDatabase(app)
+const auth = getAuth()
+signInAnonymously(auth)
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -45,7 +35,7 @@ const IndexPage = () => (
     <SectionMain />
     <SectionFeatured />
     <SectionMission />
-    <SectionSuite database={database} />
+    <SectionSuite />
     <SectionOffline />
     <Footer />
   </>

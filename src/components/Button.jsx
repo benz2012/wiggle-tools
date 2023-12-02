@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import theme from '../theme'
 
@@ -19,11 +19,11 @@ const ButtonDefault = styled.button`
   color: ${props => props.disabled ? theme.palette.disabled.text() : 'white'};
   font-size: 14px;
 
-  &:hover, &:focus {
-    background-color: ${props => theme.palette[props.color || 'secondary'].main(
-      props.disabled ? 1 : 0.8
-    )};
-  }
+  ${props => props.disabled === false && css`
+    &:hover, &:focus {
+      background-color: ${props => theme.palette[props.color || 'secondary'].main(0.8)};
+    }
+  `}
 `
 
 const ButtonOutlined = styled(ButtonDefault)`
@@ -31,15 +31,17 @@ const ButtonOutlined = styled(ButtonDefault)`
   border: 1px solid ${props => theme.palette[props.color || 'secondary'].main()};
   color: ${props => theme.palette[props.color || 'secondary'].main()};
 
-  &:hover, &:focus {
-    background-color: ${props => theme.palette[props.color || 'secondary'].main(0.2)};
+  ${props => props.disabled === false && css`
+    &:hover, &:focus {
+      background-color: ${props => theme.palette[props.color || 'secondary'].main(0.2)};
 
-    ${props => props.color === 'grey' && `
-      color: ${theme.palette.primary.main()};
-      border-color: ${theme.palette.primary.main()};
-      background-color: ${theme.palette.primary.main(0.2)};
-    `};
-  }
+      ${props => props.color === 'grey' && `
+        color: ${theme.palette.primary.main()};
+        border-color: ${theme.palette.primary.main()};
+        background-color: ${theme.palette.primary.main(0.2)};
+      `};
+    }
+  `}
 `
 
 const Button = ({ children, onClick, disabled, outlined, noTabIndex, ...rest }) => {
