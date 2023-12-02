@@ -6,7 +6,7 @@ import Button from './Button'
 const StyledAnchor = styled.a`
   text-decoration: none;
   display: inline-block;
-  width: ${props => props.fullWidth ? '100%' : 'unset'};
+  width: ${props => props.$fullWidth ? '100%' : 'unset'};
 `
 
 const ButtonLink = ({ children, linkTo, newTab = false, ...rest }) => {
@@ -15,7 +15,7 @@ const ButtonLink = ({ children, linkTo, newTab = false, ...rest }) => {
     rel: 'noreferrer noopener',
   } : {}
   return (
-    <StyledAnchor href={linkTo} fullWidth={rest.fullWidth} {...tabProps}>
+    <StyledAnchor href={linkTo} $fullWidth={rest.fullWidth} {...tabProps}>
       <Button noTabIndex {...rest}>{children}</Button>
     </StyledAnchor>
   )

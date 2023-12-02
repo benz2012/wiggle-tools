@@ -1,5 +1,5 @@
-import '@fontsource/roboto';
-import '@fontsource/roboto-slab/700.css';
+import '@fontsource/roboto'
+import '@fontsource/roboto-slab/700.css'
 
 export const onInitialClientRender = () => {
   const { hash } = window.location

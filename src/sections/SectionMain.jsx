@@ -71,7 +71,7 @@ const SectionMain = () => {
 
   return (
     <StyledMain>
-      <BlurBall top="0" left={-1 * theme.spacing.balls} />
+      <BlurBall $top="0" $left={-1 * theme.spacing.balls} />
 
       <TextChunk>
         <Heading2>

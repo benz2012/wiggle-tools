@@ -6,7 +6,7 @@ import theme from '../theme'
 const ButtonDefault = styled.button`
   background-color: ${props => theme.palette[props.color || 'secondary'].main()};
 
-  width: ${props => props.fullWidth ? '100%' : 'unset'};
+  width: ${props => props.$fullWidth ? '100%' : 'unset'};
   padding: ${theme.spacing.rhythm}px ${theme.spacing.rhythm * 2}px;
   border-radius: 8px;
   border: none;

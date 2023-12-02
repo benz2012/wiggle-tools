@@ -24,7 +24,7 @@ const StyledArrow = styled(Arrow)`
 
 const SectionFeatured = () => (
   <StyledSection id="featured">
-    <BlurBall right={-1 * theme.spacing.balls} variant="secondary" />
+    <BlurBall $right={-1 * theme.spacing.balls} $variant="secondary" />
 
     <SplashChunk>
       <StyledImage src={animateExample} alt="A screenshot of a vector-graphics animator that runs in the web browser." />

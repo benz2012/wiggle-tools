@@ -84,7 +84,7 @@ const SectionSuite = () => {
 
   return (
     <CenterWideSection id="tools">
-      <BlurBall top="150" left="0" />
+      <BlurBall $top="150" $left="0" />
 
       <Heading2>
         The Wiggle Suite
@@ -99,7 +99,7 @@ const SectionSuite = () => {
           <Description>
             A vector-based motion graphics animation tool. Dozens of properties, keyframe control, and curve editors.
           </Description>
-          <ButtonLink outlined fullWidth linkTo="https://wiggle.tools/animate" newTab>
+          <ButtonLink outlined $fullWidth linkTo="https://wiggle.tools/animate" newTab>
             Open Tool
             <StyledArrow />
           </ButtonLink>
