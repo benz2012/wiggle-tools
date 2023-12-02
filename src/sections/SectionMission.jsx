@@ -16,6 +16,13 @@ const CenterWideSection = styled(StyledSection)`
   padding-right: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
 `
 
+const RuleContainer = styled.div`
+  font-size: 16px;
+  text-align: center;
+  width: 20%;
+  margin-bottom: 24px;
+`
+
 const SectionMission = () => (
   <CenterWideSection id="about">
     <Heading2>
@@ -30,9 +37,9 @@ const SectionMission = () => (
       deserve to exist this way. It's that simple.
     </Body>
 
-    <Body style={{ textAlign: 'center', width: '20%' }}>
+    <RuleContainer>
       <hr />
-    </Body>
+    </RuleContainer>
 
     <Body style={{ textAlign: 'center', width: '84%' }}>
       Why me?<br />
@@ -50,9 +57,9 @@ const SectionMission = () => (
       Because web technologies have advanced greatly over the past decade.
     </Body>
 
-    <Body style={{ textAlign: 'center', width: '20%' }}>
+    <RuleContainer>
       <hr />
-    </Body>
+    </RuleContainer>
 
     <Body style={{ textAlign: 'center', width: '80%' }}>
       It's unfortunate that generative AI has arrived in full-force, and likely makes this product obsolete in many ways.
