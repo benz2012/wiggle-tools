@@ -13,7 +13,7 @@
     "build": "gatsby clean && gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "preload-fonts": "gatsby-preload-fonts"
+    "preload-fonts": "gatsby-preload-fonts # NOTE - this fails to prefix-paths, do manually"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
