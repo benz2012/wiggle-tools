@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
-import { ref, push, set, getDatabase, onValue, off } from 'firebase/database'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 import Bounce from '../svgs/bounce.svg'
 import Cut from '../svgs/cut.svg'
 import specialEffects from '../images/special-effects.png'
 
+import { FirebaseContext } from '../firebase-browser-only/firebaseContext'
 import theme from '../theme'
 import BlurBall from '../components/BlurBall'
 import ButtonLink from '../components/ButtonLink'
@@ -81,21 +80,23 @@ const QuestionMark = styled.div`
   color: white;
 `
 
-const auth = getAuth()
-let uid
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    uid = user.uid
-  }
-})
-
 const SectionSuite = () => {
+  const firebase = useContext(FirebaseContext)
+
+  const [uid, setUid] = useState()
+  useEffect(() => {
+    const auth = firebase.getAuth()
+    firebase.onAuthStateChanged(auth, (user) => {
+      if (user) setUid(user.uid)
+    })
+  }, [firebase])
+
   const [votesData, setVotesData] = useState({})
   useEffect(() => {
-    const db = getDatabase()
-    const votesRef = ref(db, 'votes')
+    const db = firebase.getDatabase()
+    const votesRef = firebase.ref(db, 'votes')
 
-    onValue(votesRef, (snapshot) => {
+    firebase.onValue(votesRef, (snapshot) => {
       const data = snapshot.val()
       if (data) {
         setVotesData(data)
@@ -104,13 +105,13 @@ const SectionSuite = () => {
       }
     })
 
-    return () => { off(votesRef) }
-  }, [])
+    return () => { firebase.off(votesRef) }
+  }, [firebase])
 
   const voteForIdea = (toolIdea) => {
-    const db = getDatabase()
-    set(
-      ref(db, `votes/${uid}/${toolIdea}`),
+    const db = firebase.getDatabase()
+    firebase.set(
+      firebase.ref(db, `votes/${uid}/${toolIdea}`),
       true
     )
   }
@@ -118,10 +119,10 @@ const SectionSuite = () => {
   const [ideaValue, setIdeaValue] = useState('')
   const [ideaSubmitted, setIdeaSubmitted] = useState(false)
   const submitToolIdea = (toolIdea) => {
-    const db = getDatabase()
-    const toolIdeasListRef = ref(db, 'toolIdeas')
-    const newToolIdeaRef = push(toolIdeasListRef)
-    set(newToolIdeaRef, toolIdea)
+    const db = firebase.getDatabase()
+    const toolIdeasListRef = firebase.ref(db, 'toolIdeas')
+    const newToolIdeaRef = firebase.push(toolIdeasListRef)
+    firebase.set(newToolIdeaRef, toolIdea)
     setIdeaSubmitted(true)
   }
 
