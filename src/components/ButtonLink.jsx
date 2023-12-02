@@ -16,7 +16,7 @@ const ButtonLink = ({ children, linkTo, newTab = false, ...rest }) => {
   } : {}
   return (
     <StyledAnchor href={linkTo} fullWidth={rest.fullWidth} {...tabProps}>
-      <Button {...rest}>{children}</Button>
+      <Button noTabIndex {...rest}>{children}</Button>
     </StyledAnchor>
   )
 }

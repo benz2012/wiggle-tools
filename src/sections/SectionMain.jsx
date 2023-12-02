@@ -14,7 +14,7 @@ const GIFContainer = styled.figure`
   height: 180px;
   z-index: 100;
   background-color: ${theme.palette.background.dark()};
-  border-radius: 12px;
+  border-radius: ${theme.spacing.rhythm}px;
   overflow:hidden;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,6 @@ const SectionMain = () => {
       // Only Start the Animation Loop if z-index is 100
       // z-index of 111 represents reduced motion, so we never start the animation
       const zIndexForElm = window.getComputedStyle(wiggleTexts[wiggleId].current)['z-index']
-      console.log(zIndexForElm)
       if (zIndexForElm === '110') { oneWig() }
     })
 
@@ -73,7 +72,7 @@ const SectionMain = () => {
   return (
     <StyledMain>
       <BlurBall top="0" left={-1 * theme.spacing.balls} />
-  
+
       <TextChunk>
         <Heading2>
           Create Visual Assets, Fast. Free Forever.
@@ -85,14 +84,14 @@ const SectionMain = () => {
         </Body>
         <ButtonLink linkTo="#about">Learn More</ButtonLink>
       </TextChunk>
-  
+
       <SplashChunk style={{ position: 'relative' }}>
         <GIFContainer>
           <WiggleText ref={wiggleText1} color={theme.palette.tertiary.main()}>WIGGLE</WiggleText>
           <WiggleText ref={wiggleText2} color="#D6BBFB">WITH</WiggleText>
           <WiggleText ref={wiggleText3} color={theme.palette.secondary.main()}>IT</WiggleText>
         </GIFContainer>
-  
+
         <div style={{
           width: 150,
           height: 150,
@@ -102,7 +101,7 @@ const SectionMain = () => {
           left: 0,
           borderBottomLeftRadius: 100,
         }} />
-  
+
         <div style={{
           width: 150,
           height: 150,
@@ -112,7 +111,7 @@ const SectionMain = () => {
           right: 30,
           borderTopRightRadius: 100,
         }} />
-  
+
         <div style={{
           width: 120,
           height: 120,
@@ -122,7 +121,7 @@ const SectionMain = () => {
           right: 0,
           borderRadius: 120,
         }} />
-  
+
         <div style={{
           width: 0,
           height: 0,

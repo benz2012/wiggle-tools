@@ -26,6 +26,10 @@ const theme = {
       main: opacity => `rgba(135, 140, 145, ${opacity ?? 1})`,
       text: opacity => `rgba(255, 255, 255, ${opacity ?? 0.5})`,
     },
+    grey: {
+      main: _ => 'grey',
+      dark: _ => 'darkgrey',
+    },
   },
 }
 

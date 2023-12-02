@@ -19,7 +19,7 @@ const ButtonDefault = styled.button`
   color: ${props => props.disabled ? theme.palette.disabled.text() : 'white'};
   font-size: 14px;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: ${props => theme.palette[props.color || 'secondary'].main(
       props.disabled ? 1 : 0.8
     )};
@@ -31,12 +31,18 @@ const ButtonOutlined = styled(ButtonDefault)`
   border: 1px solid ${props => theme.palette[props.color || 'secondary'].main()};
   color: ${props => theme.palette[props.color || 'secondary'].main()};
 
-  &:hover {
+  &:hover, &:focus {
     background-color: ${props => theme.palette[props.color || 'secondary'].main(0.2)};
+
+    ${props => props.color === 'grey' && `
+      color: ${theme.palette.primary.main()};
+      border-color: ${theme.palette.primary.main()};
+      background-color: ${theme.palette.primary.main(0.2)};
+    `};
   }
 `
 
-const Button = ({ children, onClick, disabled, outlined, ...rest }) => {
+const Button = ({ children, onClick, disabled, outlined, noTabIndex, ...rest }) => {
   let ButtonComponent = ButtonDefault
   if (outlined) {
     ButtonComponent = ButtonOutlined
@@ -46,6 +52,7 @@ const Button = ({ children, onClick, disabled, outlined, ...rest }) => {
       onClick={disabled ? (() => null) : onClick}
       color={disabled ? 'disabled' : rest.color}
       disabled={disabled}
+      tabIndex={noTabIndex ? '-1' : '0'}
       {...rest}
     >
       {children}

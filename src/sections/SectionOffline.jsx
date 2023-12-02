@@ -48,15 +48,15 @@ const SectionOffline = () => (
       </DownloadButton>
 
       <DownloadButton disabled>
-        More
+        This is where
       </DownloadButton>
 
       <DownloadButton disabled>
-        Goodies
+        I would put more stuff
       </DownloadButton>
 
       <DownloadButton disabled>
-        Later
+        if I had it
       </DownloadButton>
     </SplashChunk>
   </StyledSection>
