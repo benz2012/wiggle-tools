@@ -38,11 +38,17 @@ const CheckMarkIcon = styled(CheckMark)`
   height: 18px;
 `
 
-const VoteButton = ({ total, voted = false }) => {
+const VoteButton = ({ total, onVote, voted = false }) => {
   return (
     <Container>
       <TotalBox>{total} want this</TotalBox>
-      <Button color="grey" style={{ padding: theme.spacing.rhythm }} outlined={!voted} disabled={voted}>
+      <Button
+        onClick={onVote}
+        color="grey"
+        style={{ padding: theme.spacing.rhythm }}
+        outlined={!voted}
+        disabled={voted}
+      >
         {voted ? (<CheckMarkIcon />) : (<ThumbsUpIcon />)}
       </Button>
     </Container>

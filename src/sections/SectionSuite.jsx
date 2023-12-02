@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { ref, push, set, getDatabase } from 'firebase/database'
+import { ref, push, set, getDatabase, onValue, off } from 'firebase/database'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 import Bounce from '../svgs/bounce.svg'
@@ -80,10 +81,42 @@ const QuestionMark = styled.div`
   color: white;
 `
 
+const auth = getAuth()
+let uid
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    uid = user.uid
+  }
+})
+
 const SectionSuite = () => {
+  const [votesData, setVotesData] = useState({})
+  useEffect(() => {
+    const db = getDatabase()
+    const votesRef = ref(db, 'votes')
+
+    onValue(votesRef, (snapshot) => {
+      const data = snapshot.val()
+      if (data) {
+        setVotesData(data)
+      } else {
+        setVotesData({})
+      }
+    })
+
+    return () => { off(votesRef) }
+  }, [])
+
+  const voteForIdea = (toolIdea) => {
+    const db = getDatabase()
+    set(
+      ref(db, `votes/${uid}/${toolIdea}`),
+      true
+    )
+  }
+
   const [ideaValue, setIdeaValue] = useState('')
   const [ideaSubmitted, setIdeaSubmitted] = useState(false)
-
   const submitToolIdea = (toolIdea) => {
     const db = getDatabase()
     const toolIdeasListRef = ref(db, 'toolIdeas')
@@ -126,7 +159,16 @@ const SectionSuite = () => {
             A video editor so simple you'll never get lost. Cut, Layer, Export.<br /><br />
             <span style={{ color: 'grey' }}>Gauging Interest</span>
           </Description>
-          <VoteButton total={45} voted />
+          <VoteButton
+            onVote={() => voteForIdea('wiggle-edit')}
+            voted={votesData[uid]?.['wiggle-edit']}
+            total={Object.values(votesData).reduce((accum, voteObj) => {
+              if ('wiggle-edit' in voteObj) {
+                return accum + 1
+              }
+              return accum
+            }, 0)}
+          />
         </ToolContainer>
 
         <ToolContainer>
@@ -138,7 +180,16 @@ const SectionSuite = () => {
             Apply basic effects to real footage -- green screen, blur, recolor, and complex layering.<br />
             <span style={{ color: 'grey' }}>Gauging Interest</span>
           </Description>
-          <VoteButton total={45} />
+          <VoteButton
+            onVote={() => voteForIdea('wiggle-vfx')}
+            voted={votesData[uid]?.['wiggle-vfx']}
+            total={Object.values(votesData).reduce((accum, voteObj) => {
+              if ('wiggle-vfx' in voteObj) {
+                return accum + 1
+              }
+              return accum
+            }, 0)}
+          />
         </ToolContainer>
 
         <ToolContainer>
