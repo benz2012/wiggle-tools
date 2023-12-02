@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 import Bounce from '../svgs/bounce.svg'
 import Cut from '../svgs/cut.svg'
+import specialEffects from '../images/special-effects.png'
 
 import theme from '../theme'
 import BlurBall from '../components/BlurBall'
 import ButtonLink from '../components/ButtonLink'
 import VoteButton from '../components/VoteButton'
+import InputAndSubmit from '../components/InputAndSubmit'
 import { StyledSection } from '../components/sections'
 import { Heading2, Heading6, Body } from '../components/typography'
 
@@ -61,51 +63,88 @@ const StyledArrow = styled(Arrow)`
   padding-left: 4px;
 `
 
-const SectionSuite = () => (
-  <CenterWideSection id="tools">
-    <BlurBall top="150" left="0" />
+const VerticalLine = styled.div`
+  border-left: 1px dashed rgba(255, 255, 255, 0.2);
+  margin: ${theme.spacing.rhythm * 2}px 0px;
+`
 
-    <Heading2>
-      The Wiggle Suite
-    </Heading2>
+const VFXIcon = styled.img`
+  filter: invert(100%);
+  height: 50px;
+  width: 50px;
+`
 
-    <ToolsContainer>
-      <ToolContainer>
-        <IconCircle>
-          <Bounce style={{ width: '60%', height: '60%', marginTop: 3, marginLeft: 3 }} />
-        </IconCircle>
-        <Heading6>Wiggle Animate</Heading6>
-        <Description>
-          A vector-based motion graphics animation tool. Dozens of properties, keyframe control, and curve editors.
-        </Description>
-        <ButtonLink outlined fullWidth linkTo="https://wiggle.tools/animate" newTab>
-          Open Tool
-          <StyledArrow />
-        </ButtonLink>
-      </ToolContainer>
+const QuestionMark = styled.div`
+  font-size: 40px;
+  color: white;
+`
 
-      <ToolContainer>
-        <IconCircle>
-          <Cut style={{ width: '48%', height: '48%', marginTop: 6 }} />
-        </IconCircle>
-        <Heading6>Wiggle Edit</Heading6>
-        <Description>A video editor so simple you'll never get lost. Cut, Layer, Export.<br /><br />Gauging Interest.</Description>
-        <VoteButton total={45} />
-      </ToolContainer>
+const SectionSuite = () => {
+  const [ideaValue, setIdeaValue] = useState('')
 
-      <ToolContainer>
-        <IconCircle />
-        <Heading6>Wiggle Pixel</Heading6>
-        <Description>Here is one sentance about the product, and some words</Description>
-      </ToolContainer>
+  return (
+    <CenterWideSection id="tools">
+      <BlurBall top="150" left="0" />
 
-      <ToolContainer>
-        <IconCircle />
-        <Heading6>Wiggle Convert</Heading6>
-        <Description>Here is one sentance about the product, and some words</Description>
-      </ToolContainer>
-    </ToolsContainer>
-  </CenterWideSection>
-)
+      <Heading2>
+        The Wiggle Suite
+      </Heading2>
+
+      <ToolsContainer>
+        <ToolContainer>
+          <IconCircle>
+            <Bounce style={{ width: '60%', height: '60%', marginTop: 3, marginLeft: 3 }} />
+          </IconCircle>
+          <Heading6>Wiggle Animate</Heading6>
+          <Description>
+            A vector-based motion graphics animation tool. Dozens of properties, keyframe control, and curve editors.
+          </Description>
+          <ButtonLink outlined fullWidth linkTo="https://wiggle.tools/animate" newTab>
+            Open Tool
+            <StyledArrow />
+          </ButtonLink>
+        </ToolContainer>
+
+        <VerticalLine />
+
+        <ToolContainer>
+          <IconCircle>
+            <Cut style={{ width: '48%', height: '48%', marginTop: 6 }} />
+          </IconCircle>
+          <Heading6>Wiggle Edit</Heading6>
+          <Description>
+            A video editor so simple you'll never get lost. Cut, Layer, Export.<br /><br />
+            <span style={{ color: 'grey' }}>Gauging Interest</span>
+          </Description>
+          <VoteButton total={45} voted />
+        </ToolContainer>
+
+        <ToolContainer>
+          <IconCircle>
+            <VFXIcon src={specialEffects} alt="Visual Effects" />
+          </IconCircle>
+          <Heading6>Wiggle VFX</Heading6>
+          <Description>
+            Apply basic effects to real footage -- green screen, blur, recolor, and complex layering.<br />
+            <span style={{ color: 'grey' }}>Gauging Interest</span>
+          </Description>
+          <VoteButton total={45} />
+        </ToolContainer>
+
+        <ToolContainer>
+          <IconCircle>
+            <QuestionMark>?</QuestionMark>
+          </IconCircle>
+          <Heading6>What Else?</Heading6>
+          <Description>Know of a creative tool that lacks awesome or free alternatives?<br />Let us know.<br /><br /></Description>
+          <InputAndSubmit
+            value={ideaValue}
+            onChange={(event) => setIdeaValue(event.target.value)}
+          />
+        </ToolContainer>
+      </ToolsContainer>
+    </CenterWideSection>
+  )
+}
 
 export default SectionSuite

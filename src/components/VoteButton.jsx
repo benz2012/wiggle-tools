@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import ThumbsUp from '../svgs/thumb_up_FILL0_wght400_GRAD0_opsz24.svg'
+import CheckMark from '../svgs/done_FILL0_wght400_GRAD0_opsz24.svg'
 
 import theme from '../theme'
 import Button from './Button'
@@ -19,7 +20,7 @@ const TotalBox = styled.div`
 
   font-size: 14px;
   color: grey;
-  border: 1px solid grey;
+  border: 1px dashed grey;
   border-radius: 8px;
 
   display: flex;
@@ -32,12 +33,17 @@ const ThumbsUpIcon = styled(ThumbsUp)`
   height: 16px;
 `
 
+const CheckMarkIcon = styled(CheckMark)`
+  width: 16px;
+  height: 18px;
+`
+
 const VoteButton = ({ total, voted = false }) => {
   return (
     <Container>
       <TotalBox>{total} want this</TotalBox>
-      <Button outlined color="primary" style={{ padding: theme.spacing.rhythm }}>
-        {voted ? ('voted') : (<ThumbsUpIcon />)}
+      <Button color="grey" style={{ padding: theme.spacing.rhythm }} outlined={!voted} disabled={voted}>
+        {voted ? (<CheckMarkIcon />) : (<ThumbsUpIcon />)}
       </Button>
     </Container>
   )
