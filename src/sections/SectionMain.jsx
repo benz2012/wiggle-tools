@@ -43,6 +43,7 @@ const SectionMain = () => {
   const wiggleTexts = { wiggleText1, wiggleText2, wiggleText3 }
 
   useEffect(() => {
+    /* eslint-disable react-hooks/exhaustive-deps */
     const timeoutIds = { wiggleText1: null, wiggleText2: null, wiggleText3: null }
 
     Object.keys(wiggleTexts).forEach((wiggleId) => {

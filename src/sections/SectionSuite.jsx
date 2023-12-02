@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { getDatabase, ref, push, set } from "firebase/database"
+import { ref, push, set } from "firebase/database"
 
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
 import Bounce from '../svgs/bounce.svg'
