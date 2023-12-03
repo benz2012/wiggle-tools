@@ -41,14 +41,14 @@ class Firebase {
   }
 
   _initializeAppCheck() {
-    if (process.env.NODE_ENV !== 'development') {
-      initializeAppCheck(this.app, {
-        provider: new ReCaptchaEnterpriseProvider('6LeO2CEpAAAAACVx92joPBbU8Mt-NSTpUNn3fEYj'),
-        isTokenAutoRefreshEnabled: true
-      })
-    } else {
-      console.log('Skipping ReCaptchaEnterprise AppCheck')
+    if (process.env.NODE_ENV === 'development') {
+      window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
     }
+
+    initializeAppCheck(this.app, {
+      provider: new ReCaptchaEnterpriseProvider('6LeO2CEpAAAAACVx92joPBbU8Mt-NSTpUNn3fEYj'),
+      isTokenAutoRefreshEnabled: true
+    })
   }
 
   getAuth(...args) { return _getAuth(...args) }
