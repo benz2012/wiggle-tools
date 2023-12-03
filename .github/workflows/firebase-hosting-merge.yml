@@ -19,7 +19,7 @@ jobs:
           repository: benz2012/wiggle-animate
           path: wiggle-animate
 
-      - run: mkdir ./build
+      - run: mkdir ./build && mkdir ./build/_subapps
       - run: cd wiggle-tools && npm ci && npm run build && cp -r ./public/ ../build/
       - run: cd wiggle-animate && npm ci && npm run build && cp -r ./build/ ../build/_subapps/animate/
       - run: find ./build/
