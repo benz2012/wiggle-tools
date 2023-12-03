@@ -15,7 +15,9 @@ const TextChunkRight = styled(TextChunk)`
 `
 
 const DownloadButton = styled(Button)`
-  min-width: 180px;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
 `
 
 const StyledDownload = styled(DownloadIcon)`

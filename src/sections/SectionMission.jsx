@@ -23,6 +23,11 @@ const RuleContainer = styled.div`
   margin-bottom: 24px;
 `
 
+const StyledRule = styled.hr`
+  border: none;
+  border-bottom: 1px solid white;
+`
+
 const SectionMission = () => (
   <CenterWideSection id="about">
     <Heading2>
@@ -38,7 +43,7 @@ const SectionMission = () => (
     </Body>
 
     <RuleContainer>
-      <hr />
+      <StyledRule />
     </RuleContainer>
 
     <Body style={{ textAlign: 'center', width: '84%' }}>
@@ -58,7 +63,7 @@ const SectionMission = () => (
     </Body>
 
     <RuleContainer>
-      <hr />
+      <StyledRule />
     </RuleContainer>
 
     <Body style={{ textAlign: 'center', width: '80%' }}>

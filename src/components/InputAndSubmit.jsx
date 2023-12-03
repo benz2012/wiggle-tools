@@ -21,7 +21,8 @@ const InputBox = styled.input`
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid grey;
   border-radius: 8px 0px 0px 8px;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 16px;
   color: white;
 
   &:hover, &:focus {
