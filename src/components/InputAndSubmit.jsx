@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SendIt from '../svgs/send_FILL0_wght400_GRAD0_opsz24.svg'
 import CheckMark from '../svgs/done_FILL0_wght400_GRAD0_opsz24.svg'
+import Upload from '../svgs/upload_2_FILL0_wght400_GRAD0_opsz24.svg'
 
 import theme from '../theme'
 import Button from './Button'
@@ -41,10 +41,9 @@ const FakeInput = styled.div`
   color: white;
 `
 
-const SendItIcon = styled(SendIt)`
+const UploadIcon = styled(Upload)`
   width: 20px;
   height: 20px;
-  transform: rotate(-90deg);
 `
 
 const CheckMarkIcon = styled(CheckMark)`
@@ -77,7 +76,7 @@ const InputAndSubmit = ({ value, onChange, onSubmit, submissionDone }) => {
           height: '42px',
         }}
       >
-        {submissionDone ? <CheckMarkIcon /> : <SendItIcon />}
+        {submissionDone ? <CheckMarkIcon /> : <UploadIcon />}
       </Button>
     </Container>
   )
