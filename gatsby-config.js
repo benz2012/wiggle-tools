@@ -2,7 +2,6 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: `/front`,
   siteMetadata: {
     title: `Wiggle Tools`,
     siteUrl: `https://www.wiggle.tools`

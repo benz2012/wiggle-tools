@@ -10,10 +10,10 @@
   "scripts": {
     "develop": "gatsby clean && gatsby develop --open",
     "start": "gatsby clean && gatsby develop --open",
-    "build": "gatsby clean && gatsby build --prefix-paths",
+    "build": "gatsby clean && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "preload-fonts": "gatsby-preload-fonts # NOTE - this fails to prefix-paths, do manually"
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
