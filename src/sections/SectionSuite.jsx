@@ -108,8 +108,11 @@ const SectionSuite = () => {
     })
 
     return () => { firebase.off(votesRef) }
+  }, [
+    firebase,
     // Needs to refresh on uid change as having a uid is a security rule to read the data
-  }, [firebase])
+    uid,
+  ])
 
   const voteForIdea = (toolIdea) => {
     const db = firebase.getDatabase()
