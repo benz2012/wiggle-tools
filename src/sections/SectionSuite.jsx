@@ -92,6 +92,7 @@ const SectionSuite = () => {
   }, [firebase])
 
   const [votesData, setVotesData] = useState({})
+  const [votesLoading, setVotesLoading] = useState(true)
   useEffect(() => {
     const db = firebase.getDatabase()
     const votesRef = firebase.ref(db, 'votes')
@@ -103,9 +104,11 @@ const SectionSuite = () => {
       } else {
         setVotesData({})
       }
+      setVotesLoading(false)
     })
 
     return () => { firebase.off(votesRef) }
+    // Needs to refresh on uid change as having a uid is a security rule to read the data
   }, [firebase])
 
   const voteForIdea = (toolIdea) => {
@@ -161,6 +164,7 @@ const SectionSuite = () => {
             <span style={{ color: 'grey' }}>Gauging Interest</span>
           </Description>
           <VoteButton
+            loading={votesLoading}
             onVote={() => voteForIdea('wiggle-edit')}
             voted={votesData[uid]?.['wiggle-edit']}
             total={Object.values(votesData).reduce((accum, voteObj) => {
@@ -182,6 +186,7 @@ const SectionSuite = () => {
             <span style={{ color: 'grey' }}>Gauging Interest</span>
           </Description>
           <VoteButton
+            loading={votesLoading}
             onVote={() => voteForIdea('wiggle-vfx')}
             voted={votesData[uid]?.['wiggle-vfx']}
             total={Object.values(votesData).reduce((accum, voteObj) => {
