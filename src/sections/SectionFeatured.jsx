@@ -11,8 +11,30 @@ import { TextChunk, SplashChunk } from '../components/chunks'
 import BlurBall from '../components/BlurBall'
 import ButtonLink from '../components/ButtonLink'
 
+const CustomSplashChunk = styled(SplashChunk)`
+  display: inherit;
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    display: none;
+  }
+`
+
 const StyledImage = styled.img`
   width: 440px;
+`
+
+const StyledImage2 = styled.img`
+  display: none;
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    display: inherit;
+    width: 60%;
+    ${'' /* padding-left: 40%; */}
+    margin-bottom: ${theme.spacing.rhythm}px;
+  }
+  @media (max-width: ${theme.breakpoints.small}px) {
+    display: inherit;
+    width: 100%;
+    margin-bottom: ${theme.spacing.rhythm}px;
+  }
 `
 
 const StyledArrow = styled(Arrow)`
@@ -26,9 +48,9 @@ const SectionFeatured = () => (
   <StyledSection id="featured">
     <BlurBall $right={-1 * theme.spacing.balls} $variant="secondary" />
 
-    <SplashChunk>
+    <CustomSplashChunk>
       <StyledImage src={animateExample} alt="A screenshot of a vector-graphics animator that runs in the web browser." />
-    </SplashChunk>
+    </CustomSplashChunk>
 
     <TextChunk>
       <Heading2>
@@ -42,6 +64,9 @@ const SectionFeatured = () => (
         nearly every property is keyframable.
         Useful for mockups, pitches, and simple animated graphics to be used as overlays, intercuts, titles, or calls-to-action.
       </Body>
+
+
+      <StyledImage2 src={animateExample} alt="A screenshot of a vector-graphics animator that runs in the web browser." />
 
       <ButtonLink linkTo="https://wiggle.tools/animate" newTab>
         Dive In

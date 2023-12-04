@@ -11,6 +11,9 @@ import SectionOffline from '../sections/SectionOffline'
 import Footer from '../components/Footer'
 
 const GlobalStyle = createGlobalStyle`
+  &:root {
+    color-scheme: dark;
+  }
   body {
     background-color: ${theme.palette.background.main()};
     color: white;
@@ -35,7 +38,7 @@ export const Head = () => (
     <meta name="apple-mobile-web-app-title" content="Wiggle Tools" />
     <meta name="application-name" content="Wiggle Tools" />
     <meta name="msapplication-TileColor" content="#00aba9" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#202124" />
     <meta property="og:title" content="Wiggle Tools" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wiggle.tools" />

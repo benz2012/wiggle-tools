@@ -12,6 +12,13 @@ const common = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    width: 90%;
+    flex-direction: column;
+    padding-top: ${theme.spacing.section_medium}px;
+    padding-bottom: ${theme.spacing.section_medium}px;
+  }
 `
 
 export const StyledMain = styled.main`

@@ -27,6 +27,14 @@ const ToolsContainer = styled.div`
 
   display: flex;
   gap: ${theme.spacing.rhythm * 2}px;
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    width: 100%;
+    overflow-x: scroll;
+    flex: 0 0 auto;
+    padding-bottom: 24px;
+    margin-bottom: -24px;
+  }
 `
 
 const ToolContainer = styled.div`
@@ -38,6 +46,10 @@ const ToolContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    flex: 0 0 auto;
+  }
 `
 
 const IconCircle = styled.div`
@@ -134,7 +146,7 @@ const SectionSuite = () => {
 
   return (
     <CenterWideSection id="tools">
-      <BlurBall $top="150" $left="0" />
+      <BlurBall $top="150" $left="-1" />
 
       <Heading2>
         The Wiggle Suite

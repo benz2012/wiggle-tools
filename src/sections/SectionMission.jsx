@@ -14,6 +14,12 @@ const CenterWideSection = styled(StyledSection)`
 
   padding-left: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
   padding-right: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    margin: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 `
 
 const RuleContainer = styled.div`

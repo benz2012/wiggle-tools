@@ -10,8 +10,20 @@ import { TextChunk, SplashChunk } from '../components/chunks'
 import BlurBall from '../components/BlurBall'
 import Button from '../components/Button'
 
+const OfflineSection = styled(StyledSection)`
+  width: ${theme.spacing.mainWidth - 200}px;
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    width: 90%;
+  }
+`
+
 const TextChunkRight = styled(TextChunk)`
   text-align: right;
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    text-align: center;
+  }
 `
 
 const DownloadButton = styled(Button)`
@@ -29,7 +41,7 @@ const StyledDownload = styled(DownloadIcon)`
 `
 
 const SectionOffline = () => (
-  <StyledSection style={{ width: theme.spacing.mainWidth - 200 }}>
+  <OfflineSection>
     <BlurBall $top="100" $right="-300" $variant="secondary" />
 
     <TextChunkRight>
@@ -61,7 +73,7 @@ const SectionOffline = () => (
         if I had it
       </DownloadButton>
     </SplashChunk>
-  </StyledSection>
+  </OfflineSection>
 )
 
 export default SectionOffline

@@ -1,12 +1,20 @@
+const breakpoints = {
+  medium: 1080,
+  small: 700,
+}
+
 const theme = {
   spacing: {
     mainWidth: 1000,
     rhythm: 12,
     navbar: 72,
     section: 72,
+    section_medium: 48,
     balls: 192,
     card: 208,
   },
+
+  breakpoints,
 
   palette: {
     background: {

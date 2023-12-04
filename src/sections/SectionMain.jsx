@@ -22,6 +22,10 @@ const GIFContainer = styled.figure`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    display: none;
+  }
 `
 
 const WiggleText = styled.div`
@@ -61,10 +65,12 @@ const SectionMain = () => {
         setTimeout(oneWig, nextWait)
       }
 
-      // Only Start the Animation Loop if z-index is 100
+      if (!wiggleTexts[wiggleId].current) return
+      const elementStyles = window.getComputedStyle(wiggleTexts[wiggleId].current)
+      if (elementStyles['display'] === 'none') return
       // z-index of 111 represents reduced motion, so we never start the animation
-      const zIndexForElm = window.getComputedStyle(wiggleTexts[wiggleId].current)['z-index']
-      if (zIndexForElm === '110') { oneWig() }
+      if (elementStyles['z-index'] === '111') return
+      oneWig()
     })
 
     return () => {

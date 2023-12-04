@@ -14,6 +14,12 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    width: 90%;
+    padding: 0;
+    margin: auto;
+  }
 `
 
 const StyledLinkList = styled.ul`

@@ -6,22 +6,30 @@ import { Heading4 } from './typography'
 
 const StyledFooter = styled.footer`
   width: ${theme.spacing.mainWidth}px;
-  height: ${theme.spacing.navbar}px;
+  height: ${theme.spacing.navbar - 12}px;
 
   padding-left: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
   padding-right: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
+  padding-top: 12px;
   margin-top: 100px;
   background-color: ${theme.palette.primary.main()};
 
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
+
+  @media (max-width: ${theme.breakpoints.medium}px) {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 `
 
 const StyledLinkList = styled.ul`
   list-style-type: none;
   display: flex;
   gap: ${theme.spacing.rhythm * 2}px;
+  padding: 0;
 `
 
 const ListItemLink = styled.a`
@@ -48,6 +56,16 @@ const CreditsFooter = styled(StyledFooter)`
   justify-content: flex-end;
 `
 
+const DynamicText = styled.span`
+  &:before {
+    content: "Show Credits";
+
+    @media (max-width: ${theme.breakpoints.medium}px) {
+      content: "Credits";
+    }
+  }
+`
+
 const NavBar = () => {
   const [credits, showCredits] = useState(false)
 
@@ -69,7 +87,7 @@ const NavBar = () => {
           </li>
           <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
             <ListItemLink href="#credits" onClick={() => showCredits(!credits)}>
-              {credits ? 'Hide Credits' : 'Show Credits'}
+              {credits ? 'Hide Credits' : <DynamicText />}
             </ListItemLink>
           </li>
         </StyledLinkList>
