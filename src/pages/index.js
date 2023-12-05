@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: Roboto, sans-serif;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     overflow-y: scroll;
   }
 `
@@ -47,7 +47,7 @@ export const Head = () => (
 )
 
 const IndexPage = () => (
-  <>
+  <div style={{ overflow: 'hidden', width: '100vw' }}>
     <GlobalStyle />
     <NavBar />
     <SectionMain />
@@ -56,7 +56,7 @@ const IndexPage = () => (
     <SectionSuite />
     <SectionOffline />
     <Footer />
-  </>
+  </div>
 )
 
 export default IndexPage
