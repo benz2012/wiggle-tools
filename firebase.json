@@ -12,6 +12,10 @@
         "destination": "/_subapps/animate/index.html"
       },
       {
+        "source": "/animate{,/**}",
+        "destination": "/_subapps/animate/index.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
