@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Wiggle Tools`,
-    siteUrl: `https://www.wiggle.tools`
+    siteUrl: `https://wiggle.tools`
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -20,6 +20,15 @@ module.exports = {
       },
     },
 
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+          // Add Tool URLs here
+          allPages.push({ path: '/animate' })
+          return allPages
+        },
+      },
+    },
   ]
 };
