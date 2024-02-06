@@ -13,11 +13,11 @@ jobs:
       NODE_ENV: production
       GOOGLE_FONTS_API_KEY: '${{ secrets.GOOGLE_FONTS_API_KEY }}'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: benz2012/wiggle-tools
           path: wiggle-tools
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: benz2012/wiggle-animate
           path: wiggle-animate
