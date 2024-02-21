@@ -41,7 +41,7 @@ const StyledDownload = styled(DownloadIcon)`
 `
 
 const SectionOffline = () => (
-  <OfflineSection>
+  <OfflineSection id="downloads">
     <BlurBall $top="100" $right="-300" $variant="secondary" />
 
     <TextChunkRight>
