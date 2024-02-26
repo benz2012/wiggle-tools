@@ -43,6 +43,7 @@ export const Head = () => (
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wiggle.tools" />
     <meta property="og:description" content="Create Visual Assets, Fast. Free Forever." />
+    <meta property="og:image" content="https://wiggle.tools/og-image.v1.png" />
   </>
 )
 
