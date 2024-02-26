@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting on merge
+name: Build and Deploy
 
 on:
   workflow_dispatch:
@@ -7,25 +7,34 @@ on:
       - main
 
 jobs:
-  build_and_deploy:
+  main:
     runs-on: ubuntu-latest
     env:
       NODE_ENV: production
-      GOOGLE_FONTS_API_KEY: '${{ secrets.GOOGLE_FONTS_API_KEY }}'
     steps:
       - uses: actions/checkout@v4
         with:
           repository: benz2012/wiggle-tools
           path: wiggle-tools
-      - uses: actions/checkout@v4
+      - uses: dsaltares/fetch-gh-release-asset@master
         with:
-          repository: benz2012/wiggle-animate
-          path: wiggle-animate
+          repo: benz2012/wiggle-animate
+          file: release.zip
 
-      - run: mkdir ./build && mkdir ./build/_subapps
-      - run: cd wiggle-tools && npm ci && npm run build && cp -r ./public/. ../build/
-      - run: cd wiggle-animate && npm ci && npm run build && cp -r ./build/ ../build/_subapps/animate/
-      - run: find ./build/
+      - name: Setup folders
+        run: mkdir -p ./build/_subapps
+      - name: Build Wiggle Tools
+        run: |
+          cd wiggle-tools
+          npm ci
+          npm run build
+          cp -r ./public/. ../build/
+      - name: Unzip pre-built Wiggle Animate
+        run: |
+          unzip release.zip -d wiggle-animate
+          cp -r ./wiggle-animate/build/ ../build/_subapps/animate/
+      - name: Report entire build folder
+        run: find ./build/
 
       - run: cp ./wiggle-tools/firebase.json ./wiggle-tools/.firebaserc ./
       - uses: FirebaseExtended/action-hosting-deploy@v0
