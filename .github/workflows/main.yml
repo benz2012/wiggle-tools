@@ -32,7 +32,7 @@ jobs:
       - name: Unzip pre-built Wiggle Animate
         run: |
           unzip release.zip -d wiggle-animate
-          cp -r ./wiggle-animate/build/ ../build/_subapps/animate/
+          cp -r ./wiggle-animate/build/ ./build/_subapps/animate/
       - name: Report entire build folder
         run: find ./build/
 
