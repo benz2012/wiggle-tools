@@ -60,7 +60,7 @@ const SectionFeatured = () => (
 
       <Body>
         A vector-based motion graphics animation tool that enables rapid development with an intuitive user interface.
-        Work directly in your web broser and access all your favorite baseline animation functions --
+        Work directly in your web browser and access all your favorite baseline animation functions --
         nearly every property is keyframable.
         Useful for mockups, pitches, and simple animated graphics to be used as overlays, intercuts, titles, or calls-to-action.
       </Body>
