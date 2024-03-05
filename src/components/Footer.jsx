@@ -6,11 +6,11 @@ import { Heading4 } from './typography'
 
 const StyledFooter = styled.footer`
   width: ${theme.spacing.mainWidth}px;
-  height: ${theme.spacing.navbar - 12}px;
 
   padding-left: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
   padding-right: calc(calc(100% - ${theme.spacing.mainWidth}px) / 2);
   padding-top: 12px;
+  padding-bottom: 12px;
   margin-top: 100px;
   background-color: ${theme.palette.primary.main()};
 
@@ -28,7 +28,9 @@ const StyledFooter = styled.footer`
 const StyledLinkList = styled.ul`
   list-style-type: none;
   display: flex;
-  gap: ${theme.spacing.rhythm * 2}px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: ${theme.spacing.rhythm}px;
   padding: 0;
 `
 
@@ -51,57 +53,38 @@ const StyledHeadingLink = styled.a`
   color: white;
 `
 
-const CreditsFooter = styled(StyledFooter)`
-  margin: 0;
-  justify-content: flex-end;
-`
+const Footer = () => (
+  <StyledFooter>
+    <StyledHeading>
+      <StyledHeadingLink href="/">
+        Wiggle Tools
+      </StyledHeadingLink>
+    </StyledHeading>
 
-const DynamicText = styled.span`
-  &:before {
-    content: "Show Credits";
+    <StyledLinkList>
+      <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+        Made by{' '}
+        <ListItemLink href="https://www.linkedin.com/in/benzenker" target="_blank" rel="noreferrer noopener">
+          Ben Zenker
+        </ListItemLink>
+      </li>
+      <li>
+        <ListItemLink href="https://www.reddit.com/r/wiggletools/" target="_blank" rel="noreferrer noopener">
+          Wiggle Tools - Reddit
+        </ListItemLink>
+      </li>
+      <li>
+        <ListItemLink href="https://github.com/benz2012/wiggle-animate" target="_blank" rel="noreferrer noopener">
+          Wiggle Animate - Github
+        </ListItemLink>
+      </li>
+      <li style={{ textAlign: 'right' }}>
+        <ListItemLink href="https://www.flaticon.com/free-icons/special-effects" target="_blank" rel="noreferrer noopener">
+          Special effects icons <br />created by Freepik - Flaticon
+        </ListItemLink>
+      </li>
+    </StyledLinkList>
+  </StyledFooter>
+)
 
-    @media (max-width: ${theme.breakpoints.medium}px) {
-      content: "Credits";
-    }
-  }
-`
-
-const NavBar = () => {
-  const [credits, showCredits] = useState(false)
-
-  return (
-    <>
-      <StyledFooter>
-        <StyledHeading>
-          <StyledHeadingLink href="/">
-            Wiggle Tools
-          </StyledHeadingLink>
-        </StyledHeading>
-
-        <StyledLinkList>
-          <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-            Made by{' '}
-            <ListItemLink href="https://www.linkedin.com/in/benzenker" target="_blank" rel="noreferrer noopener">
-              Ben Zenker
-            </ListItemLink>
-          </li>
-          <li style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-            <ListItemLink href="#credits" onClick={() => showCredits(!credits)}>
-              {credits ? 'Hide Credits' : <DynamicText />}
-            </ListItemLink>
-          </li>
-        </StyledLinkList>
-      </StyledFooter>
-
-      {credits && (
-        <CreditsFooter>
-          <ul>
-            <li><a href="https://www.flaticon.com/free-icons/special-effects" title="special effects icons">Special effects icons created by Freepik - Flaticon</a></li>
-          </ul>
-        </CreditsFooter>
-      )}
-    </>
-  )
-}
-
-export default NavBar
+export default Footer
