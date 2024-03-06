@@ -20,7 +20,7 @@ const ButtonDefault = styled.button`
   font-size: 14px;
 
   ${props => !props.disabled && css`
-    &:hover, &:focus {
+    &:hover {
       background-color: ${props => theme.palette[props.color || 'secondary'].main(0.8)};
     }
   `}
@@ -32,7 +32,7 @@ const ButtonOutlined = styled(ButtonDefault)`
   color: ${props => theme.palette[props.color || 'secondary'].main()};
 
   ${props => !props.disabled && css`
-    &:hover, &:focus {
+    &:hover {
       background-color: ${props => theme.palette[props.color || 'secondary'].main(0.2)};
 
       ${props => props.color === 'grey' && `

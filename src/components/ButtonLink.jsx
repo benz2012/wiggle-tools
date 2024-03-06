@@ -9,13 +9,13 @@ const StyledAnchor = styled.a`
   width: ${props => props.$fullWidth ? '100%' : 'unset'};
 `
 
-const ButtonLink = ({ children, linkTo, newTab = false, ...rest }) => {
+const ButtonLink = ({ children, linkTo, linkStyle, newTab = false, ...rest }) => {
   const tabProps = newTab ? {
     target: '_blank',
     rel: 'noreferrer noopener',
   } : {}
   return (
-    <StyledAnchor href={linkTo} $fullWidth={rest.$fullWidth} {...tabProps}>
+    <StyledAnchor href={linkTo} $fullWidth={rest.$fullWidth} style={linkStyle} {...tabProps}>
       <Button noTabIndex {...rest}>{children}</Button>
     </StyledAnchor>
   )

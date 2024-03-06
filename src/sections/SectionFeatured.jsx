@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import animateExample from '../images/animate-example.png'
 import Arrow from '../svgs/arrow_outward_FILL0_wght400_GRAD0_opsz24.svg'
+import GitHub from '../svgs/github-mark-white.svg'
 
 import theme from '../theme'
 import { StyledSection } from '../components/sections'
@@ -37,11 +38,23 @@ const StyledImage2 = styled.img`
   }
 `
 
+const WrapBellowButtonLink = styled(ButtonLink)`
+  @media (max-width: 450px) {
+    margin-bottom: ${theme.spacing.rhythm}px;
+  }
+`
+
 const StyledArrow = styled(Arrow)`
   height: 16px;
   width: 16px;
   margin-right: -4px;
   padding-left: 4px;
+`
+
+const StyledGitHub = styled(GitHub)`
+  height: 16px;
+  width: 16px;
+  padding-left: 8px;
 `
 
 const SectionFeatured = () => (
@@ -68,9 +81,31 @@ const SectionFeatured = () => (
 
       <StyledImage2 src={animateExample} alt="A screenshot of a vector-graphics animator that runs in the web browser." />
 
-      <ButtonLink linkTo="https://wiggle.tools/animate" newTab>
+      <WrapBellowButtonLink
+        newTab
+        linkTo="https://wiggle.tools/animate"
+        linkStyle={{ marginRight: `${theme.spacing.rhythm}px` }}
+      >
         Dive In
         <StyledArrow />
+      </WrapBellowButtonLink>
+
+      <ButtonLink
+        newTab
+        linkTo="https://github.com/benz2012/wiggle-animate"
+        outlined
+        linkStyle={{ marginRight: `${theme.spacing.rhythm}px` }}
+      >
+        Github
+        <StyledGitHub />
+      </ButtonLink>
+
+      <ButtonLink
+        newTab
+        linkTo="https://github.com/benz2012/wiggle-animate/blob/main/LICENSE"
+        outlined
+      >
+        MIT License
       </ButtonLink>
     </TextChunk>
   </StyledSection>
